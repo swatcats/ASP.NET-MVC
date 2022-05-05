@@ -1,0 +1,25 @@
+﻿@model List<FAQ>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="questions border rounded">
+    @foreach (var FAQ in Model)
+    {
+        <tr class="border-bottom rounded">
+            <td>
+                <strong>@FAQ.Question</strong> @FAQ.Answer
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            Topic: @FAQ.Topic.Name
+                        </div>
+                        <div class="col">
+                            Category: @FAQ.Category.Name
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    }
+</table>

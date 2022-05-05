@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/css/site.css">
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap-override.css">
+</head>
+<body>
+    <div class="container">
+        <header class="jumbotron">
+            <h1>Frequently Asked Questions</h1>
+        </header>
+        <nav class="topics navbar navbar-expand-sm navbar-light bg-white">
+            <div class="container">
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item active">
+                            <a class="nav-link text-dark" asp-controller="" asp-action="">All FAQs</a>
+                        </li>
+                        @foreach (var topic in ViewBag.Topics)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" asp-route-topic="@topic.TopicId">@topic.Name</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <nav class="categories navbar">
+                        <div class="container-fullwidth">
+                            <div class="navbar">
+                                <ul class="list-group">
+                                    @foreach (var category in ViewBag.Categories)
+                                    {
+                                        <li class="list-group-item">
+                                            <a asp-controller="Home" asp-action="Index" asp-route-category="@category.CategoryId">@category.Name</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-10">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

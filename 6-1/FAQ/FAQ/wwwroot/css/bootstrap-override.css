@@ -1,0 +1,55 @@
+﻿header {
+    background-color: turquoise;
+    color: white;
+    text-align: center;
+    padding: 25px 0px 35px 0px;
+
+}
+header h1 {
+    font-size: 72px;
+}
+a {
+    text-decoration: none;
+}
+.categories a {
+    color: revert !important;
+}
+.container-fullwidth, .navbar, .navbar-nav, .list-group {
+    width: 100%;
+}
+.categories li.list-group-item {
+    text-indent: 15px;
+}
+.categories li.list-group-item:last-of-type {
+
+}
+nav.categories {
+  padding:0px;
+  margin:0px;
+}
+.categories .navbar {
+    padding: 0px;
+    margin: 0px;
+}
+li.active {
+    font-weight: bold;
+}
+nav.topics {
+    margin-left: 18%;
+}
+table.questions {
+    width: 100%;
+}
+[class*="col-"]:first-of-type {
+    padding-left: 0px;
+}
+[class*="col-"]:last-of-type {
+    padding-right: 0px;
+}
+table.questions tr td {
+    padding: 15px !important;
+}
+table.questions div.container {
+    padding: 0px;
+    margin-top: 15px;
+}

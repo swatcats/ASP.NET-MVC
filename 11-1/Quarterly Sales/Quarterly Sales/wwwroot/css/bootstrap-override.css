@@ -1,0 +1,14 @@
+﻿table.sales {
+    width: 100%;
+}
+table.sales tr th, table.sales tr td {
+    padding: 10px;
+}
+.employee > * {
+    display: inline-block;
+    vertical-align: baseline;
+    margin-right: 30px;
+}
+.employee > select {
+    width: 300px !important;
+}

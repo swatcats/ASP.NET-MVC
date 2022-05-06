@@ -1,0 +1,58 @@
+﻿@model SaleListViewModel
+@{
+    ViewData["Title"] = "Quarterly Sales";
+}
+<h2>@ViewData["Title"]</h2>
+<row>
+    <form asp-controller="Home" asp-action="Index" method="post">
+        <div class="form-group employee">
+            <label>Employee</label>
+            <select asp-for="EmployeeId" class="form-control">
+                @foreach (var Employee in Model.Employees)
+                {
+                    <option value="@Employee.EmployeeId">@Employee.FirstName @Employee.LastName</option>
+                }
+            </select>
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </div>
+        </form>
+
+    @*<form action="/Home/Index" method="post">
+        <div class="form-group employee">
+            <label>Employee</label>
+            <select name="EmployeeId" id="EmployeeId" class="form-control">
+                @foreach (var Employee in Model.Employees)
+                {
+                    <option value="@Employee.EmployeeId">@Employee.FirstName @Employee.LastName</option>
+                }
+            </select>
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </div>
+    </form>*@
+</row>
+
+<table class="sales">
+    <tr class="border-top border-bottom">
+        <th>Year</th>
+        <th>Quarter</th>
+        <th>Employee</th>
+        <th>Amount</th>
+    </tr>
+    @{
+        double TotalSales = 0;
+    }
+    @foreach (var sale in Model.Sales)
+    {
+        <tr class="border-top border-bottom">
+            <td>@sale.Year</td>
+            <td>@sale.Quarter</td>
+            <td>@sale.Employee.FirstName @sale.Employee.LastName</td>
+            <td>@sale.Amount.ToString("C")</td>
+        </tr>
+        TotalSales = TotalSales + sale.Amount;
+    }
+    <tr>
+        <td colspan="3">Total Sales</td>
+        <td>@TotalSales.ToString("C")</td>
+    </tr>
+</table>
